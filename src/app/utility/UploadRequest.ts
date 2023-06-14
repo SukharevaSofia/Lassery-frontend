@@ -1,5 +1,5 @@
 export interface UploadRequest {
-  fileContents: string;
+  fileContentBase64: string;
   checksum: boolean;
   renderAsText: boolean;
 }

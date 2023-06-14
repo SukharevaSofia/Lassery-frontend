@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {environment} from "../environments/environment";
-import {HttpClient} from "@angular/common/http";
-
+import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {UploadResponse} from "../utility/UploadResponse";
+import {UploadRequest} from "../utility/UploadRequest";
+import {Observable, timeout} from "rxjs";
 
 
 @Component({
@@ -18,10 +20,14 @@ export class FileInputComponent{
 
   SubmitData(){
     let formData = new FormData();
-    formData.set("file", this.file)
-    let updateUrl = environment.baseUrl + "UPDATE"
-    this.http.post(updateUrl, formData)
+    formData.append("fileContentBase64", btoa(this.file))
+    let updateUrl = environment.baseUrl + "upload"
+
+    const options = {headers: {'Content-Type': 'application/json'}};
+
+    this.http.post(updateUrl, JSON.stringify({"fileContentBase64": btoa(this.file), "checksum": false, "renderAsText": false}), options)
       .subscribe((response) =>{});
+    console.log(JSON.stringify({"fileContentBase64": btoa(this.file), "checksum": false, "renderAsText": false}))
   }
 
   constructor(private http:HttpClient) {
