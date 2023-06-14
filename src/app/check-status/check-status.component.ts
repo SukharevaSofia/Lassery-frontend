@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import {environment} from "../environments/environment";
 import {HttpClient} from "@angular/common/http";
 import {CheckResponse} from "../utility/CheckResponse";
+import {Observable, timeout} from "rxjs";
+import {HttpService} from "../services/http.service";
 
 @Component({
   selector: 'app-check-status',
@@ -9,14 +11,16 @@ import {CheckResponse} from "../utility/CheckResponse";
   styleUrls: ['./check-status.component.css']
 })
 export class CheckStatusComponent {
-  fileList : number[] = [];
+  listOfID!: number[]
   CheckStatus(){
-    let   statusUrl = environment.baseUrl + "status"
-    const options = {headers: {'Content-Type': 'application/json'}};
-    this.http.get<CheckResponse>(statusUrl).subscribe(//TODO})
+    this.httpService.httpGetCheckStatus().subscribe(response=>{
+      this.listOfID = response;
+      alert("list: " + this.listOfID)
+    })
+
   }
 
-  constructor(private http:HttpClient) {
+  constructor(private httpService: HttpService) {
   }
 
 }

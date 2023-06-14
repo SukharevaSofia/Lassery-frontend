@@ -5,6 +5,7 @@ import {environment} from '../environments/environment'
 import {Observable, tap, timeout} from "rxjs";
 import {UploadRequest} from "../utility/UploadRequest";
 import {UploadResponse} from "../utility/UploadResponse";
+import {CheckResponse} from "../utility/CheckResponse";
 @Injectable({
   providedIn: 'root'
 })
@@ -18,13 +19,11 @@ export class HttpService {
   constructor(private http: HttpClient) {
     this.token = "";
   }
-  uploadHttpRequest(uploadRequest: UploadRequest): Observable<UploadResponse>{
-    return this.http.post<UploadResponse>(this.baseUrl.concat("/UPLOAD"), uploadRequest, {
-      observe: 'body',
-      responseType: 'json'
-    }).pipe(
-      timeout(3000)
-    )
+
+  httpGetCheckStatus():Observable<number[]>{
+    let   statusUrl = environment.baseUrl + "status"
+    const options = {headers: {'Content-Type': 'application/json'}};
+    return this.http.get<number[]>(statusUrl).pipe(timeout (10000))
   }
 
 //   fetchHttpRequest()

@@ -1,10 +1,21 @@
 <div class="current-status">
   <div id="status-button">
-    <input type="button" class="upload-btn" (click)=CheckStatus() value="Check status of files">
+    <input type="button" class="btn" (click)=CheckStatus() value="Check status of files">
   </div>
 
   <div id="status-bar">
-    Amount of files to receive:<span *ngFor="let "
+    There are ? files to receive
   </div>
 
 </div>
+
+<!--<ul *ngIf="listOfID. > 0; else loading">-->
+<!--  <li *ngFor="let listItem of list$| async">-->
+<!--    {{ listItem.text }}-->
+<!--  </li>-->
+<!--</ul>-->
+
+<!--<ng-template #loading>-->
+<!--  <p>Shows when no data, waiting for Api</p>-->
+<!--  <loading-component></loading-component>-->
+<!--</ng-template>-->

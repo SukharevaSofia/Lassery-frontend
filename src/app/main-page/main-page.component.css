@@ -71,17 +71,6 @@ p {
   fill: rgb(105, 103, 103);
 }
 
-a,
-a:visited,
-a:hover {
-  color: #1976d2;
-  text-decoration: none;
-}
-
-a:hover {
-  color: #125699;
-}
-
 footer {
   margin-top: 8px;
   display: flex;
@@ -112,3 +101,5 @@ footer a {
   }
 
 }
+
+

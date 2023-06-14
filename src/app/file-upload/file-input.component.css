@@ -1,4 +1,4 @@
-.upload-btn{
+.btn{
   background-color: darkslategray;
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: .25rem;
@@ -17,10 +17,10 @@
   vertical-align: baseline;
   width: auto;
 }
-.upload-btn:hover{
+.btn:hover{
   background-color: darkcyan ;
 }
-.upload-btn:active{
+.btn:active{
   border-color: rgba(0, 0, 0, 0.15);
 
   color: rgba(0, 0, 0, 0.65);
