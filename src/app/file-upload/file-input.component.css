@@ -1,7 +1,7 @@
 .btn{
-  background-color: darkslategray;
+  background-color: #0d8b96;
   border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: .25rem;
+  border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
   box-sizing: border-box;
   color: snow;
@@ -18,7 +18,8 @@
   width: auto;
 }
 .btn:hover{
-  background-color: darkcyan ;
+  background-color: springgreen ;
+  color: #1F3333;
 }
 .btn:active{
   border-color: rgba(0, 0, 0, 0.15);
@@ -28,7 +29,30 @@
   transform: translateY(1px);
 }
 
+input[type=file]::file-selector-button {
+  margin-right: 20px;
+  border: none;
+  background: #0d8b96;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 10px;
+  color: snow;
+  cursor: pointer;
+  transition: background .2s ease-in-out;
+}
 
-.center-right{
+input[type=file]::file-selector-button:hover {
+  background: springgreen;
+  color: #1F3333;
+}
+
+.form-group{
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 10px;
+  horiz-align: center;
+  max-width: fit-content;
+  margin: 0 auto;
 
 }

@@ -5,16 +5,16 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { FileInputComponent } from './file-upload/file-input.component';
 import { MainPageComponent } from './main-page/main-page.component';
-import { GetFetchComponent } from './get-fetch/get-fetch.component';
 import { CheckStatusComponent } from './check-status/check-status.component';
+import { FileFetchComponent } from './file-fetch/file-fetch.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FileInputComponent,
     MainPageComponent,
-    GetFetchComponent,
     CheckStatusComponent,
+    FileFetchComponent,
   ],
   imports: [
     BrowserModule,

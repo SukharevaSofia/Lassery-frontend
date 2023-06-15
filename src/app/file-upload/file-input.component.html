@@ -1,8 +1,12 @@
-<div class="form-group">
-  <label for="file">Choose File</label>
-
-  <input type="file"
-         id="file"
-         (change)="getFile($event)"/>
-  <input type="button" class="btn" (click)=SubmitData() value="Upload" >
+<div style="text-align: center">
+  <div class="form-group">
+    <label for="file" class="drop-container" >
+      Choose File
+    </label>
+    <br>
+    <input type="file"
+           id="file"
+           (change)="getFile($event)"/>
+    <input type="button" class="btn" (click)=SubmitData() value="Upload" >
+  </div>
 </div>
