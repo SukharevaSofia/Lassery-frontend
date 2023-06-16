@@ -12,13 +12,13 @@ import {Observable, timeout} from "rxjs";
   styleUrls: ['./file-input.component.css']
 })
 export class FileInputComponent{
-  file: any;
-  getFile(event: any){
-    this.file = event.target.files[0]
-    console.log("file: ", this.file)
-  }
-
+  file!: string;
   SubmitData(){
+    if (this.file.length ==0 || this.file == null){
+      alert("Input can't be empty.")
+      return
+    }
+
     let formData = new FormData();
     formData.append("fileContentBase64", btoa(this.file))
     let updateUrl = environment.baseUrl + "upload"
@@ -29,6 +29,7 @@ export class FileInputComponent{
       .subscribe((response) =>{});
     console.log(JSON.stringify({"fileContentBase64": btoa(this.file), "checksum": false, "renderAsText": false}))
   }
+
 
   constructor(private http:HttpClient) {
   }

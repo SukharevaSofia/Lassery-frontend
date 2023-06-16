@@ -1,12 +1,13 @@
 <div style="text-align: center">
   <div class="form-group">
-    <label for="file" class="drop-container" >
-      Choose File
-    </label>
+
     <br>
-    <input type="file"
-           id="file"
-           (change)="getFile($event)"/>
+    <input type="text"
+           id="fileInput"
+           [(ngModel)]="file"
+           maxlength="1000000"
+           required
+           placeholder="Type your message here"/>
     <input type="button" class="btn" (click)=SubmitData() value="Upload" >
   </div>
 </div>

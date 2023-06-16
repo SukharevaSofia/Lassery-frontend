@@ -1,13 +1,39 @@
+
 <div class="current-status">
   <div id="status-button">
     <input type="button" class="btn" (click)=CheckStatus() value="Check status of files">
   </div>
 
-  <div id="status-bar">
-    There are ? files to receive
+  <br>
+  <div id="status-bar" *ngIf="listOfID.length >0; else noFiles">
+    <section class="table_section">
+      <table id="id-table" class="id-table">
+        <tr>
+          <th>File ID</th>
+          <th></th>
+          <th>Message</th>
+        </tr>
+        <tr *ngFor="let id of listOfID">
+          <td>{{id}}</td>
+          <td>
+            <input type="button"
+                   class="btn"
+                   (click)="FetchFile(id)"
+                   value="Show message">
+          </td>
+          <td id="button_to_show_{{id}}"></td>
+        </tr>
+      </table>
+    </section>
   </div>
 
 </div>
+
+<ng-template #noFiles>
+  <p style=" font-size: 14px;
+  font-weight: 600;">No files to see :( </p>
+
+</ng-template>
 
 <!--<ul *ngIf="listOfID. > 0; else loading">-->
 <!--  <li *ngFor="let listItem of list$| async">-->

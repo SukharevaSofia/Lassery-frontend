@@ -16,6 +16,7 @@
   transition: all 250ms;
   vertical-align: baseline;
   width: auto;
+  margin: 0 auto;
 }
 .btn:hover{
   background-color: springgreen ;
@@ -29,16 +30,33 @@
   transform: translateY(1px);
 }
 
-.form-group{
-  font-size: 16px;
-  font-weight: 600;
-  border-radius: 10px;
-  horiz-align: center;
-  max-width: fit-content;
-  margin: 0 auto;
+.current-status{
+  text-align: center;
+  margin-top: 2rem;
 }
-#fileInput{
-  color: #1F3333;
-  margin-right: 1rem;
+//.no-file{
+//  border-radius: 10px;
+//  background: darkslategray;
+//  width: 20rem;
+//  text-align: center;
+//  margin-top: 2rem;
+//  height: 10rem;
+//}
+
+.table_section{
+  #id-table{
+    width: 100%;
+    box-shadow:  #1F3333;
+    //transition: 0.5s;
+
+    min-height: 5rem;
+    *{
+      text-align: center;
+    }
+
+    tr:nth-child(odd) {
+      background: darkslategray;
+    }
+  }
 }
 

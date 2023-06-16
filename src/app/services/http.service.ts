@@ -6,15 +6,13 @@ import {Observable, tap, timeout} from "rxjs";
 import {UploadRequest} from "../utility/UploadRequest";
 import {UploadResponse} from "../utility/UploadResponse";
 import {CheckResponse} from "../utility/CheckResponse";
+
 @Injectable({
   providedIn: 'root'
 })
 export class HttpService {
 
   private token: string;
-
-  private baseUrl = environment.baseUrl;
-  private hitServeUrl = 'https://web5.sssofya.ru/backend/backend/hit';
 
   constructor(private http: HttpClient) {
     this.token = "";
@@ -23,36 +21,12 @@ export class HttpService {
   httpGetCheckStatus():Observable<number[]>{
     let   statusUrl = environment.baseUrl + "status"
     const options = {headers: {'Content-Type': 'application/json'}};
-    return this.http.get<number[]>(statusUrl).pipe(timeout (10000))
+    return this.http.get<number[]>(statusUrl, options).pipe(timeout (100000))
   }
 
-//   fetchHttpRequest()
+  httpGetFetchFile(id: number):Observable<string>{
+    let fetchUrl = environment.baseUrl + "fetch?id=" + id
+    return this.http.get(fetchUrl, {responseType : "text"}).pipe(timeout(100000))
+  }
 
-  // hitPostHttpRequest(hitRequest: HitRequest | null, hitRequestType: HitRequestType): Observable<HitResponse> {
-  //   return this.http.post<HitResponse>(this.hitServeUrl.concat("/", hitRequestType), hitRequest, {
-  //     observe: 'body',
-  //     responseType: 'json',
-  //     headers: new HttpHeaders({
-  //       'Authorization': 'Bearer_'.concat(this.token)
-  //     })
-  //   }).pipe(
-  //     timeout(3000)
-  //   )
-  // }
-  //
-  // hitGetHttpRequest(hitRequestType: HitRequestType): Observable<HitResponse> {
-  //   return this.http.get<HitResponse>(this.hitServeUrl.concat("/", hitRequestType), {
-  //     observe: 'body',
-  //     responseType: 'json',
-  //     headers: new HttpHeaders({
-  //       'Authorization': 'Bearer_'.concat(this.token)
-  //     })
-  //   }).pipe(
-  //     timeout(3000)
-  //   )
-  // }
-  //
-  // clearToken(): void {
-  //   this.token = "";
-  // }
 }

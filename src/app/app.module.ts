@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { FileInputComponent } from './file-upload/file-input.component';
 import { MainPageComponent } from './main-page/main-page.component';
 import { CheckStatusComponent } from './check-status/check-status.component';
-import { FileFetchComponent } from './file-fetch/file-fetch.component';
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -14,12 +14,12 @@ import { FileFetchComponent } from './file-fetch/file-fetch.component';
     FileInputComponent,
     MainPageComponent,
     CheckStatusComponent,
-    FileFetchComponent,
   ],
-  imports: [
-    BrowserModule,
-    HttpClientModule
-  ],
+    imports: [
+        BrowserModule,
+        HttpClientModule,
+        FormsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
