@@ -5,7 +5,7 @@
   </div>
 
   <br>
-  <div id="status-bar" *ngIf="listOfID.length >0; else noFiles">
+  <div id="status-bar" *ngIf="listOfID && listOfID.length > 0; else noFiles">
     <section class="table_section">
       <table id="id-table" class="id-table">
         <tr>
@@ -31,17 +31,8 @@
 
 <ng-template #noFiles>
   <p style=" font-size: 14px;
-  font-weight: 600;">No files to see :( </p>
+  font-weight: 600;">No messages to see :( </p>
 
 </ng-template>
 
-<!--<ul *ngIf="listOfID. > 0; else loading">-->
-<!--  <li *ngFor="let listItem of list$| async">-->
-<!--    {{ listItem.text }}-->
-<!--  </li>-->
-<!--</ul>-->
 
-<!--<ng-template #loading>-->
-<!--  <p>Shows when no data, waiting for Api</p>-->
-<!--  <loading-component></loading-component>-->
-<!--</ng-template>-->
